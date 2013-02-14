@@ -1,0 +1,19 @@
+{
+    "private": true,
+    "name": "cartodb_tile_proxy",
+    "description": "cartodb tile proxy",
+    "version": "0.0.1",
+    "author": {
+        "name": "Javi Santana",
+        "url": "http://vizzuality.com",
+        "email": "jsantana@vizzuality.com"
+    },
+    "dependencies": {
+      "http-proxy": ""
+    },
+    "devDependencies": {
+        "superagent": ""
+    },
+    "scripts": { },
+    "engines": { "node": ">= 0.8.11" }
+}

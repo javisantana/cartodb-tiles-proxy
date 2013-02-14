@@ -1,0 +1,6 @@
+{
+    "ne_10m_populated_p_2": {
+        "sql": "select * from ne_10m_populated_p_2 limit 10"
+    }
+
+}
