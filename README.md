@@ -63,14 +63,18 @@ this script allows you to serve tiles from you private tables without need to ex
         attribution: 'Stamen'
       }).addTo(map);
 
-      cartodb.createLayer(map, 'http://examples.cartodb.com/api/v1/viz/16499/viz.json',{
-        interactivity: 'columns',
-        user_name: '',
-        tiler_domain: 'YOUSERVER',
-        tiler_port: '9090',
-        no_cdn: true,
-        infowindow: false
+      cartodb.createLayer(map, {
+        type: 'cartodb',
+        options: {
+          table_name: 'TABLE_NAME',
+          interactivity: 'color_count',
+          user_name: '',
+          tiler_domain: 'localhost',
+          tiler_port: '9090',
+          no_cdn: true
+        }
       })
+
       .on('done', function(layer) {
         map.addLayer(layer);
 
