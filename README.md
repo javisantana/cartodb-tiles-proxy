@@ -84,7 +84,7 @@ this script allows you to serve tiles from you private tables without need to ex
     }
 
     window.onload = main;
-    ```
+  ```
 
     
   default infowindow does not work, you need to manage your own infowindows
