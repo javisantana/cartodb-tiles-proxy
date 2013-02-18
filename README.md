@@ -18,27 +18,27 @@ this script allows you to serve tiles from you private tables without need to ex
 
     cd cartodb-tiles-proxy && npm install
 
-    this installs all the required dependencies
+   
+   this installs all the required dependencies
 
   3) get your api_key from your account dashboard and launch the app (forget the config.json for now)
 
     node app.js creemaps.cartodb.com API_KEY 9090
 
-    this runs the proxy, it listens on port 9090 so if you point to your browser to the server you should see a tile:
+    
+  this runs the proxy, it listens on port 9090 so if you point to your browser to the server you should see a tile:
 
-    http://server_running_app:9090/TABLE/0/0/0.png
+  http://server_running_app:9090/TABLE/0/0/0.png
 
 
-  4) create a config file like this (you could add more tables):
+  4) create a config.json file like this in the same folder app.js is placed (you could add more tables):
 
   ```
     {
         "TABLE_NAME": {
             "sql": "select * from TABLE_NAME limit where column > 20",
             "tile_style": '#TABLE_NAME { #polygon-fill: red }'
-
         }
-
     }
   ```
 
@@ -86,7 +86,8 @@ this script allows you to serve tiles from you private tables without need to ex
     window.onload = main;
     ```
 
-    default infowindow does not work, you need to manage your own infowindows
+    
+  default infowindow does not work, you need to manage your own infowindows
 
 
 
