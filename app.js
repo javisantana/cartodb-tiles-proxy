@@ -72,12 +72,18 @@ function template(s, vars){
  return s;
 }
 
-httpProxy.createServer(function (req, res, proxy) {
+var proxy = new httpProxy.HttpProxy({
+  target: {
+    host: host,
+    port: 443,
+    https: true 
+  }
+});
+
+httpProxy.createServer(function (req, res) {
   var vars = url.parse(req.url, true).query
-  console.log(vars);
   // remove params
-  req.url = req.url.split('?')[0]
-  req.url += "?api_key=" + api_key;
+  req.url += req.url + (~req.url.indexOf('?') ? '&' : '?') + "api_key=" + api_key;
   var paramsTmpl = get_params_for_url(req.url);
   var params = {};
   for(var p in paramsTmpl) {
@@ -90,10 +96,7 @@ httpProxy.createServer(function (req, res, proxy) {
   req.headers['Content-Length'] = 0;
   console.log(req.url);
 
-  proxy.proxyRequest(req, res, {
-    host: host,
-    port: 80 
-  });
+  proxy.proxyRequest(req, res)
 
 }).listen(port);
 
